@@ -10,12 +10,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javax.swing.JOptionPane;
+import model.objSTACK;
 
 /**
  *
  * @author danie
  */
 public class MainViewController implements Initializable {
+    
+    private objSTACK model = new objSTACK();
     
     @FXML
     private Label label;
@@ -24,6 +28,8 @@ public class MainViewController implements Initializable {
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
         label.setText("Hello World!");
+        model.contFecha();
+        JOptionPane.showMessageDialog(null, objSTACK.fecha);
     }
     
     @Override
