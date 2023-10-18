@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class objSTACK {
     Stack <producto> pilaP;
+    Stack <producto> pilaInv;
 
     public objSTACK() {
         pilaP = new Stack();
@@ -33,26 +34,22 @@ public class objSTACK {
                     "El nombre del producto ya se encuentra registrado");
         }
     }
-    
-    public static String fecha;
-    int dia = 1, mes = 1, año = 2023;
-    public void contFecha(){
-        dia = dia +10;
-        if(dia > 30){
-            dia = 1;
-            mes = mes+1;
-            if(mes > 12){
-                año = año +1;
-                mes = 1;
-            }
-        }
-        fecha = Integer.toString(dia)+"/"+Integer.toString(mes)+"/"+Integer.toString(año);
-    }
     public void setPopProducto(){
         if(!pilaP.empty()){
-            pilaP.pop();
-            JOptionPane.showMessageDialog(null,
-                    "El producto ya expiro!");
+            int ult = pilaP.size(), i = 0;
+            while (i<pilaP.size()){
+                pilaInv.push(pilaP.get(ult));
+                pilaP.pop();
+                ult = ult -1;
+            }
+            pilaInv.pop();
+            int ultInv = pilaInv.size(), j = 0;
+            while (j<pilaInv.size()){
+                pilaP.push(pilaInv.get(ultInv));
+                pilaInv.pop();
+                ultInv = ultInv -1;
+            }
+            
         }else{
             JOptionPane.showMessageDialog(null,
                     "La pila no tiene elementos");
