@@ -12,177 +12,113 @@ import javax.swing.JOptionPane;
  * @author danie
  */
 public class objSTACK {
-    Stack <producto> pilaP;
-    Stack <producto> pilaInv;
-
+    private Stack<producto> pila;
+    
     public objSTACK() {
-        pilaP = new Stack();
+        this.pila = new Stack<>();
     }
     
-    public void setPushProducto(producto P){
-        int id = pilaP.indexOf(P.idProducto);
-        int nom = pilaP.indexOf(P.nomProducto);
-        if(id == -1 && nom == -1){
-            pilaP.push(P);
-            JOptionPane.showMessageDialog(null,
-                    "Producto registrado!");
-        }else if(id != -1){
-            JOptionPane.showMessageDialog(null,
-                    "El ID del producto ya se encuentra registrado");
-        }else if(nom != -1){
-            JOptionPane.showMessageDialog(null,
-                    "El nombre del producto ya se encuentra registrado");
-        }
-    }
-    public void setPopProducto(){
-        if(!pilaP.empty()){
-            int ult = pilaP.size(), i = 0;
-            while (i<pilaP.size()){
-                pilaInv.push(pilaP.get(ult));
-                pilaP.pop();
-                ult = ult -1;
-            }
-            pilaInv.pop();
-            int ultInv = pilaInv.size(), j = 0;
-            while (j<pilaInv.size()){
-                pilaP.push(pilaInv.get(ultInv));
-                pilaInv.pop();
-                ultInv = ultInv -1;
-            }
-            
+    public void setPushProducto (producto p){
+        if(getInfoProductoId(p.idProducto) != null){
+            JOptionPane.showMessageDialog(null, "El ID del producto ya se encuentra registrado");
+        }else if(getInfoProductoNom(p.nomProducto) != null){
+            JOptionPane.showMessageDialog(null, "El Nombre del producto ya se encuentra registrado");
         }else{
-            JOptionPane.showMessageDialog(null,
-                    "La pila no tiene elementos");
+            pila.push(p);
+            controller.PaginaprincipalController.Productos.add(p);
+            JOptionPane.showMessageDialog(null, "Producto registrado exitosamente!");
         }
+        
     }
-     
-    producto getInfoProductoid (String id){
-        producto aux = new producto();
-        int i = 0;
-        while(i<pilaP.size()){
-            aux = (producto) pilaP.get(i);
-            if(aux.idProducto.equals(i))
-                return aux;
-            i++;
-        }
-        aux = null;
-        return aux;
-    }
-    producto getInfoProductonom (String nom){
-        producto aux = new producto();
-        int i = 0;
-        while(i<pilaP.size()){
-            aux = (producto) pilaP.get(i);
-            if(aux.nomProducto.equals(i))
-                return aux;
-            i++;
-        }
-        aux = null;
-        return aux;
-    }
-    objSTACK getInfoProductofechaL (String fechaL){
-        producto aux = new producto();
-        objSTACK caux = new objSTACK();
-        int i = 0;
-        while(i<pilaP.size()){
-            aux = (producto) pilaP.get(i);
-            if(aux.FechaLote.equals(i)){
-                caux.pilaP.add(aux);
-            }
-        }
-        aux = null;
-        return caux;
-    }
-    objSTACK getInfoProductofechaV (String fechaV){
-        producto aux = new producto();
-        objSTACK caux = new objSTACK();
-        int i = 0;
-        while(i<pilaP.size()){
-            aux = (producto) pilaP.get(i);
-            if(aux.FechaVence.equals(i))
-                caux.pilaP.add(aux);
-            i++;
-        }
-        aux = null;
-        return caux;
-    }
-    objSTACK getInfoProductoprecio (float precio){
-        producto aux = new producto();
-        objSTACK caux = new objSTACK();
-        int i = 0;
-        while(i<pilaP.size()){
-            aux = (producto) pilaP.get(i);
-            if(aux.precioU == precio)
-                caux.pilaP.add(aux);
-            i++;
-        }
-        aux = null;
-        return caux;
+    public void setRemoveProducto(){
+        pila.remove(0);
+        controller.PaginaprincipalController.Productos.remove(0);
+        JOptionPane.showMessageDialog(null, "Un producto a expirado!");
     }
     
-    public float promPrecio(){
+    public producto getInfoProductoId (String id){
         producto aux = new producto();
         int i = 0;
-        float sum = 0, prom = 0;
-        while(i<pilaP.size()){
-            aux = (producto) pilaP.get(i);
-            sum = aux.precioU + sum;
+        while(i<pila.size()){
+            aux = (producto) pila.get(i);
+            if(aux.idProducto.equals(id))
+                return aux;
+            i++;
         }
-        prom = sum / pilaP.size();
+        aux = null;
+        return aux;
+    }
+    public producto getInfoProductoNom (String Nom){
+        producto aux = new producto();
+        int i = 0;
+        while(i<pila.size()){
+            aux = (producto) pila.get(i);
+            if(aux.nomProducto.equals(Nom))
+                return aux;
+            i++;
+        }
+        aux = null;
+        return aux;
+    }
+    public producto getInfoProductoFechaL (String FechaL){
+        producto aux = new producto();
+        int i = 0;
+        while(i<pila.size()){
+            aux = (producto) pila.get(i);
+            if(aux.FechaLote.equals(FechaL))
+                return aux;
+            i++;
+        }
+        aux = null;
+        return aux;
+    }
+    public producto getInfoProductoFechaV (String FechaV){
+        producto aux = new producto();
+        int i = 0;
+        while(i<pila.size()){
+            aux = (producto) pila.get(i);
+            if(aux.FechaVence.equals(FechaV))
+                return aux;
+            i++;
+        }
+        aux = null;
+        return aux;
+    }
+    public producto getInfoProductoPrecio (float Precio){
+        producto aux = new producto();
+        int i = 0;
+        while(i<pila.size()){
+            aux = (producto) pila.get(i);
+            if(aux.precioU == Precio)
+                return aux;
+            i++;
+        }
+        aux = null;
+        return aux;
+    }
+    public float promPrecio(){
+        float sum = 0;
+        float prom = 0;
+        for (producto lista : pila){
+            sum = lista.getPrecioU() + sum;
+        }
+        prom = sum / pila.size();
         return prom;
     }
-    objSTACK getMenorProm (float prom){
-        prom = promPrecio();
-        producto aux = new producto();
-        objSTACK caux = new objSTACK();
-        int i = 0;
-        while(i<pilaP.size()){
-            aux = (producto) pilaP.get(i);
-            if(aux.precioU < prom){
-                caux.pilaP.add(aux);
+    public void getMenProm (){
+        float prom = promPrecio();
+        for (producto lista : pila){
+            if(lista.precioU < prom){
+                controller.busqueda.BuscarController.busqueda.add(lista);
             }
         }
-        aux = null;
-        return caux;
     }
-    objSTACK getMayorProm (float prom){
-        prom = promPrecio();
-        producto aux = new producto();
-        objSTACK caux = new objSTACK();
-        int i = 0;
-        while(i<pilaP.size()){
-            aux = (producto) pilaP.get(i);
-            if(aux.precioU > prom){
-                caux.pilaP.add(aux);
+    public void getMayProm (){
+        float prom = promPrecio();
+        for (producto lista : pila){
+            if(lista.precioU > prom){
+                controller.busqueda.BuscarController.busqueda.add(lista);
             }
         }
-        aux = null;
-        return caux;
-    }
-    producto getMayorPrecio (producto Mprecio){
-        Mprecio = new producto();
-        producto aux = new producto();
-        int i = 0;
-        while(i<pilaP.size()){
-            aux = (producto) pilaP.get(i);
-            if(aux.precioU > Mprecio.precioU){
-                Mprecio = aux;
-            }
-        }
-        aux = null;
-        return Mprecio;
-    }
-    producto getMenorPrecio (producto mPrecio){
-        mPrecio = new producto();
-        producto aux = new producto();
-        int i = 0;
-        while(i<pilaP.size()){
-            aux = (producto) pilaP.get(i);
-            if(aux.precioU < mPrecio.precioU){
-                mPrecio = aux;
-            }
-        }
-        aux = null;
-        return mPrecio;
     }
 }

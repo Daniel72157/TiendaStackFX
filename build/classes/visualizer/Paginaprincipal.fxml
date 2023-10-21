@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #EFC90A;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #EFC90A;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PaginaprincipalController">
    <children>
-      <ListView layoutX="3.0" layoutY="105.0" orientation="HORIZONTAL" prefHeight="325.0" prefWidth="694.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="105.0" />
       <VBox alignment="CENTER" layoutX="14.0" prefHeight="105.0" prefWidth="203.0">
          <children>
             <Label prefHeight="28.0" prefWidth="277.0" text="GESTION DE PRODUCTOS">
@@ -26,15 +27,37 @@
       </VBox>
       <HBox alignment="CENTER" layoutX="218.0" prefHeight="105.0" prefWidth="531.0" spacing="10.0" style="-fx-background-color: #EFC90A;">
          <children>
-            <Button mnemonicParsing="false" style="-fx-border-radius: 90; -fx-background-radius: 90;" text="Registrar" />
+            <Button fx:id="btnRegistrar" mnemonicParsing="false" onAction="#actionEvent" style="-fx-border-radius: 90; -fx-background-radius: 90;" text="Registrar" />
             <Button mnemonicParsing="false" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Buscar" />
-            <Button mnemonicParsing="false" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Lote y ven" />
-            <Button mnemonicParsing="false" style="-fx-border-radius: 90; -fx-background-radius: 90;" text="Promedio" />
-            <Button mnemonicParsing="false" text="&lt; precio" />
-            <Button mnemonicParsing="false" text="&gt; precio" />
-            <Button mnemonicParsing="false" text="precio &gt;&lt;" />
+            <Button fx:id="btnProm" mnemonicParsing="false" onAction="#actionEvent" style="-fx-border-radius: 90; -fx-background-radius: 90;" text="Promedio" />
+            <VBox alignment="CENTER" prefHeight="105.0" prefWidth="127.0" spacing="5.0">
+               <children>
+                  <Button fx:id="btnMenProm" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Menor al promedio" />
+                  <Button fx:id="btnMayProm" mnemonicParsing="false" onAction="#actionEvent" style="-fx-border-radius: 90; -fx-background-radius: 90;" text="Mayor al promedio" />
+               </children>
+            </VBox>
+            <Button fx:id="test" mnemonicParsing="false" onAction="#actionEvent" text="precio &gt;&lt;" />
          </children>
       </HBox>
-      <Button layoutX="674.0" layoutY="451.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Salir" />
+      <Button fx:id="btnClose" layoutX="674.0" layoutY="451.0" mnemonicParsing="false" onAction="#actionEvent" prefHeight="25.0" prefWidth="64.0" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Salir" />
+      <TableView fx:id="tbList" layoutX="210.0" layoutY="165.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 10;" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="9.5" AnchorPane.rightAnchor="9.5" AnchorPane.topAnchor="105.0">
+        <columns>
+          <TableColumn fx:id="idProducto" prefWidth="146.0" text="Id. Producto" />
+          <TableColumn fx:id="nomProducto" prefWidth="146.0" text="Nombre producto" />
+            <TableColumn fx:id="FechaLote" prefWidth="146.0" text="Fecha lote" />
+            <TableColumn fx:id="FechaVence" prefWidth="146.0" text="Fecha vencimiento" />
+            <TableColumn fx:id="precioU" prefWidth="146.0" text="Precio unitario" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnModFecha" layoutX="14.0" layoutY="451.0" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90;" text="Modificar fecha">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnFecha10" layoutX="116.0" layoutY="451.0" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90;" text="+10">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>
