@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class objSTACK {
     private Stack<producto> pila;
-    
+    public static producto aux = null;
     public objSTACK() {
         this.pila = new Stack<>();
     }
@@ -31,17 +31,6 @@ public class objSTACK {
         }
         
     }
-    public void setRemoveProducto(){
-        String fecha = PaginaprincipalController.fecha;
-        for (producto lista : pila){
-            if(lista.FechaVence.equals(fecha)){
-                pila.remove(lista);
-                controller.PaginaprincipalController.Productos.remove(lista);
-            }
-        }
-        
-    }
-    
     public producto getInfoProductoId (String id){
         producto aux = new producto();
         int i = 0;
@@ -66,17 +55,42 @@ public class objSTACK {
         aux = null;
         return aux;
     }
-    public producto getInfoProductoFechaL (String FechaL){
-        producto aux = new producto();
-        int i = 0;
-        while(i<pila.size()){
-            aux = (producto) pila.get(i);
-            if(aux.FechaLote.equals(FechaL))
-                return aux;
-            i++;
+    public void setRemoveProducto(){
+        String fecha = PaginaprincipalController.fecha;
+        producto eliminar = new producto();
+        for (producto lista : pila){
+            eliminar = getInfoProductoFechaV(fecha);
+            while(eliminar != null){
+                pila.remove(eliminar);
+                controller.PaginaprincipalController.Productos.remove(eliminar);
+                eliminar = getInfoProductoFechaV(fecha);
+            }
         }
-        aux = null;
-        return aux;
+        
+    }
+    public void listarID(String id){
+        for(producto lista : pila){
+            if(lista.idProducto.equals(id)){
+                controller.busqueda.BuscarController.busqueda.add(lista);
+                aux = lista;
+            }
+        }
+    }
+    public void listarNom(String nom){
+        for(producto lista : pila){
+            if(lista.nomProducto.equals(nom)){
+                controller.busqueda.BuscarController.busqueda.add(lista);
+                aux = lista;
+            }
+        }
+    }
+    public void listarFechaL(String fechal){
+        for(producto lista : pila){
+            if(lista.FechaLote.equals(fechal)){
+                controller.busqueda.BuscarController.busqueda.add(lista);
+                aux = lista;
+            }
+        }
     }
     public producto getInfoProductoFechaV (String FechaV){
         producto aux = new producto();
@@ -90,17 +104,21 @@ public class objSTACK {
         aux = null;
         return aux;
     }
-    public producto getInfoProductoPrecio (float Precio){
-        producto aux = new producto();
-        int i = 0;
-        while(i<pila.size()){
-            aux = (producto) pila.get(i);
-            if(aux.precioU == Precio)
-                return aux;
-            i++;
+    public void listarFechaV(String fechav){
+        for(producto lista : pila){
+            if(lista.FechaVence.equals(fechav)){
+                controller.busqueda.BuscarController.busqueda.add(lista);
+                aux = lista;
+            }
         }
-        aux = null;
-        return aux;
+    }
+    public void listarPrecio(float precio){
+        for(producto lista : pila){
+            if(lista.precioU == (precio)){
+                controller.busqueda.BuscarController.busqueda.add(lista);
+                aux = lista;
+            }
+        }
     }
     public float promPrecio(){
         float sum = 0;

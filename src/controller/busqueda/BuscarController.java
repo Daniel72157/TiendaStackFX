@@ -68,6 +68,7 @@ public class BuscarController implements Initializable {
         Object evt = e.getSource();
         if(evt.equals(btnBack)){
             busqueda.removeAll(busqueda);
+            objSTACK.aux = null;
             loadStage("/visualizer/Paginaprincipal.fxml", e);
         }
     }

@@ -25,25 +25,48 @@
             <Insets />
          </opaqueInsets>
       </VBox>
-      <HBox alignment="CENTER" layoutX="218.0" prefHeight="105.0" prefWidth="531.0" spacing="10.0" style="-fx-background-color: #EFC90A;">
+      <VBox layoutX="218.0">
          <children>
-            <Button fx:id="btnRegistrar" mnemonicParsing="false" onAction="#actionEvent" style="-fx-border-radius: 90; -fx-background-radius: 90;" text="Registrar" />
-            <Button mnemonicParsing="false" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Buscar" />
-            <Button fx:id="btnProm" mnemonicParsing="false" onAction="#actionEvent" style="-fx-border-radius: 90; -fx-background-radius: 90;" text="Promedio" />
-            <VBox alignment="CENTER" prefHeight="105.0" prefWidth="127.0" spacing="5.0">
+            <HBox alignment="CENTER" prefHeight="105.0" prefWidth="531.0" spacing="10.0" style="-fx-background-color: #EFC90A;">
                <children>
-                  <Button fx:id="btnMenProm" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Menor al promedio" />
-                  <Button fx:id="btnMayProm" mnemonicParsing="false" onAction="#actionEvent" style="-fx-border-radius: 90; -fx-background-radius: 90;" text="Mayor al promedio" />
+                  <VBox prefHeight="105.0" prefWidth="184.0" spacing="5.0">
+                     <children>
+                        <Label text="Opciones de busqueda:">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="25.0" prefWidth="200.0" spacing="5.0">
+                           <children>
+                              <Button fx:id="btnId" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="ID" />
+                              <Button fx:id="btnNom" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Nombre" />
+                              <Button fx:id="btnPrecio" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Precio" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0" spacing="5.0">
+                           <children>
+                              <Button fx:id="btnFechaL" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Fecha lote" />
+                              <Button fx:id="btnFechaV" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Fecha vence" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="105.0" prefWidth="127.0" spacing="5.0">
+                     <children>
+                        <Button fx:id="btnMenProm" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Menor al promedio" />
+                        <Button fx:id="btnMayProm" mnemonicParsing="false" onAction="#actionEvent" style="-fx-border-radius: 90; -fx-background-radius: 90;" text="Mayor al promedio" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                     <children>
+                        <Button fx:id="btnMayPrecio" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Mayor precio" />
+                        <Button fx:id="btnMenPrecio" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Menor precio" />
+                     </children>
+                  </VBox>
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
-               <children>
-                  <Button fx:id="btnMayPrecio" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Mayor precio" />
-                  <Button fx:id="btnMenPrecio" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Menor precio" />
-               </children>
-            </VBox>
+            </HBox>
          </children>
-      </HBox>
+      </VBox>
       <Button fx:id="btnClose" layoutX="674.0" layoutY="451.0" mnemonicParsing="false" onAction="#actionEvent" prefHeight="25.0" prefWidth="64.0" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Salir" />
       <TableView fx:id="tbList" layoutX="210.0" layoutY="165.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 10;" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="9.5" AnchorPane.rightAnchor="9.5" AnchorPane.topAnchor="105.0">
         <columns>
@@ -59,10 +82,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnFecha10" layoutX="116.0" layoutY="451.0" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90;" text="+10">
+      <Button fx:id="btnFecha10" layoutX="122.0" layoutY="451.0" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90;" text="+10">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Button fx:id="btnRegistrar" layoutX="166.0" layoutY="451.0" mnemonicParsing="false" onAction="#actionEvent" style="-fx-border-radius: 90; -fx-background-radius: 90;" text="Registrar" />
+      <Button fx:id="btnProm" layoutX="240.0" layoutY="451.0" mnemonicParsing="false" onAction="#actionEvent" style="-fx-border-radius: 90; -fx-background-radius: 90;" text="Promedio" />
    </children>
 </AnchorPane>

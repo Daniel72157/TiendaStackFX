@@ -5,7 +5,6 @@
 package controller.registro;
 
 import controller.PaginaprincipalController;
-import static controller.PaginaprincipalController.pilaP;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Calendar;
@@ -29,7 +28,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
-import javax.swing.JOptionPane;
 import model.objSTACK;
 import model.producto;
 /**

@@ -24,6 +24,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -66,7 +67,8 @@ public class PaginaprincipalController implements Initializable {
     public static ObservableList<producto> Productos = FXCollections.observableArrayList();
     
     @FXML
-    private Button btnRegistrar, btnClose, btnProm, btnMenProm, btnMayProm, btnModFecha, btnFecha10, btnMayPrecio, btnMenPrecio;   
+    private Button btnRegistrar, btnClose, btnProm, btnMenProm, btnMayProm, btnModFecha
+            , btnFecha10, btnMayPrecio, btnMenPrecio, btnId, btnNom, btnPrecio, btnFechaL, btnFechaV;   
     
    
     @FXML
@@ -99,6 +101,41 @@ public class PaginaprincipalController implements Initializable {
         if(evt.equals(btnMenPrecio)){
             pilaP.getMenPrecio();
             loadStage("/visualizer/Buscar.fxml", e);
+        }
+        if(evt.equals(btnId)){
+            String id = JOptionPane.showInputDialog("Ingrese el ID del producto que desea buscar:");
+            pilaP.listarID(id);
+            if(objSTACK.aux != null){
+                loadStage("/visualizer/Buscar.fxml", e);
+            }
+        }
+        if(evt.equals(btnNom)){
+            String Nom = JOptionPane.showInputDialog("Ingrese el nombre del producto que desea buscar:");
+            pilaP.listarNom(Nom);
+            if(objSTACK.aux != null){
+                loadStage("/visualizer/Buscar.fxml", e);
+            }
+        }
+        if(evt.equals(btnFechaL)){
+            String FechaL = JOptionPane.showInputDialog("Ingrese la Fecha lote del producto que desea buscar:");
+            pilaP.listarFechaL(FechaL);
+            if(objSTACK.aux != null){
+                loadStage("/visualizer/Buscar.fxml", e);
+            }
+        }
+        if(evt.equals(btnFechaV)){
+            String FechaV = JOptionPane.showInputDialog("Ingrese la fecha de vencimiento del producto que desea buscar:");
+            pilaP.listarFechaV(FechaV);
+            if(objSTACK.aux != null){
+                loadStage("/visualizer/Buscar.fxml", e);
+            }
+        }
+        if(evt.equals(btnPrecio)){
+            float Precio = Float.parseFloat(JOptionPane.showInputDialog("Ingrese el precio del producto que desea buscar:"));
+            pilaP.listarPrecio(Precio);
+            if(objSTACK.aux != null){
+                loadStage("/visualizer/Buscar.fxml", e);
+            }
         }
         if(evt.equals(btnModFecha)){
             registro.modFecha();
