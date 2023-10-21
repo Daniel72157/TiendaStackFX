@@ -4,6 +4,7 @@
  */
 package model;
 
+import controller.PaginaprincipalController;
 import java.util.Stack;
 import javax.swing.JOptionPane;
 
@@ -31,9 +32,14 @@ public class objSTACK {
         
     }
     public void setRemoveProducto(){
-        pila.remove(0);
-        controller.PaginaprincipalController.Productos.remove(0);
-        JOptionPane.showMessageDialog(null, "Un producto a expirado!");
+        String fecha = PaginaprincipalController.fecha;
+        for (producto lista : pila){
+            if(lista.FechaVence.equals(fecha)){
+                pila.remove(lista);
+                controller.PaginaprincipalController.Productos.remove(lista);
+            }
+        }
+        
     }
     
     public producto getInfoProductoId (String id){
@@ -118,6 +124,42 @@ public class objSTACK {
         for (producto lista : pila){
             if(lista.precioU > prom){
                 controller.busqueda.BuscarController.busqueda.add(lista);
+            }
+        }
+    }
+    public void getMayPrecio(){
+        producto mayor = getMay();
+        for (producto lista : pila){
+            if(lista.precioU > mayor.precioU){
+                mayor = lista;
+            }
+        }
+        for (producto lista2 : pila){
+            if(lista2.precioU == mayor.precioU){
+                controller.busqueda.BuscarController.busqueda.add(lista2);
+            }
+        }
+    }
+    public producto getMay(){
+        producto mayor = new producto();
+        float precio = 0;
+        for (producto lista : pila){
+            if(lista.precioU > precio){
+                mayor = lista;
+            }
+        }
+        return mayor;
+    }
+    public void getMenPrecio(){
+        producto menor = getMay();
+        for (producto lista : pila){
+            if(lista.precioU < menor.precioU){
+                menor = lista;
+            }
+        }
+        for (producto lista2 : pila){
+            if(lista2.precioU == menor.precioU){
+                controller.busqueda.BuscarController.busqueda.add(lista2);
             }
         }
     }

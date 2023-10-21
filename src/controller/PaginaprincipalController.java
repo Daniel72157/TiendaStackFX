@@ -43,7 +43,7 @@ public class PaginaprincipalController implements Initializable {
     static public objSTACK pilaP = new objSTACK();
     RegistrarprodController registro = new RegistrarprodController();
     public int dia, mes, año;
-    String fecha;
+    public static String fecha;
      
     @FXML
     private TableView<producto> tbList;
@@ -66,7 +66,7 @@ public class PaginaprincipalController implements Initializable {
     public static ObservableList<producto> Productos = FXCollections.observableArrayList();
     
     @FXML
-    private Button btnRegistrar, btnClose, test, btnProm, btnMenProm, btnMayProm, btnModFecha, btnFecha10;   
+    private Button btnRegistrar, btnClose, btnProm, btnMenProm, btnMayProm, btnModFecha, btnFecha10, btnMayPrecio, btnMenPrecio;   
     
    
     @FXML
@@ -92,8 +92,13 @@ public class PaginaprincipalController implements Initializable {
             pilaP.getMayProm();
             loadStage("/visualizer/Buscar.fxml", e);
         }
-        if(evt.equals(test)){
-            pilaP.setRemoveProducto();
+        if(evt.equals(btnMayPrecio)){
+            pilaP.getMayPrecio();
+            loadStage("/visualizer/Buscar.fxml", e);
+        }
+        if(evt.equals(btnMenPrecio)){
+            pilaP.getMenPrecio();
+            loadStage("/visualizer/Buscar.fxml", e);
         }
         if(evt.equals(btnModFecha)){
             registro.modFecha();
@@ -103,9 +108,7 @@ public class PaginaprincipalController implements Initializable {
             fecha = String.valueOf(dia) + "/" + String.valueOf(mes+1) + "/" + String.valueOf(año);
             JOptionPane.showMessageDialog(null, "Fecha actualizada:\n" +
                                         String.valueOf(dia) + "/" +  String.valueOf(mes+1) + "/" + String.valueOf(año));
-            if(pilaP.getInfoProductoFechaV(fecha) != null){
-                pilaP.setRemoveProducto();
-            }
+            pilaP.setRemoveProducto();
         }
         if(evt.equals(btnFecha10)){
             registro.modFecha10();
@@ -115,9 +118,7 @@ public class PaginaprincipalController implements Initializable {
             fecha = String.valueOf(dia) + "/" + String.valueOf(mes+1) + "/" + String.valueOf(año);
             JOptionPane.showMessageDialog(null, "Fecha actualizada:\n" +
                                         String.valueOf(dia) + "/" +  String.valueOf(mes+1) + "/" + String.valueOf(año));
-            if(pilaP.getInfoProductoFechaV(fecha) != null){
-                pilaP.setRemoveProducto();
-            }
+            pilaP.setRemoveProducto();
         }
         
     }

@@ -36,7 +36,12 @@
                   <Button fx:id="btnMayProm" mnemonicParsing="false" onAction="#actionEvent" style="-fx-border-radius: 90; -fx-background-radius: 90;" text="Mayor al promedio" />
                </children>
             </VBox>
-            <Button fx:id="test" mnemonicParsing="false" onAction="#actionEvent" text="precio &gt;&lt;" />
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+               <children>
+                  <Button fx:id="btnMayPrecio" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Mayor precio" />
+                  <Button fx:id="btnMenPrecio" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Menor precio" />
+               </children>
+            </VBox>
          </children>
       </HBox>
       <Button fx:id="btnClose" layoutX="674.0" layoutY="451.0" mnemonicParsing="false" onAction="#actionEvent" prefHeight="25.0" prefWidth="64.0" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Salir" />
