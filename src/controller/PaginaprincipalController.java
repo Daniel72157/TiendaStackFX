@@ -67,7 +67,7 @@ public class PaginaprincipalController implements Initializable {
     public static ObservableList<producto> Productos = FXCollections.observableArrayList();
     
     @FXML
-    private Button btnRegistrar, btnClose, btnProm, btnMenProm, btnMayProm, btnModFecha
+    private Button btnRegistrar, btnClose, btnProm, btnMenProm, btnMayProm, btnFecha1, btnFecham1, btnFecham10
             , btnFecha10, btnMayPrecio, btnMenPrecio, btnId, btnNom, btnPrecio, btnFechaL, btnFechaV;   
     
    
@@ -107,6 +107,8 @@ public class PaginaprincipalController implements Initializable {
             pilaP.listarID(id);
             if(objSTACK.aux != null){
                 loadStage("/visualizer/Buscar.fxml", e);
+            }else{
+                JOptionPane.showMessageDialog(null, "Ningun producto tiene el ID buscado!");
             }
         }
         if(evt.equals(btnNom)){
@@ -114,6 +116,8 @@ public class PaginaprincipalController implements Initializable {
             pilaP.listarNom(Nom);
             if(objSTACK.aux != null){
                 loadStage("/visualizer/Buscar.fxml", e);
+            }else{
+                JOptionPane.showMessageDialog(null, "Ningun producto tiene el nombre buscado!");
             }
         }
         if(evt.equals(btnFechaL)){
@@ -121,6 +125,8 @@ public class PaginaprincipalController implements Initializable {
             pilaP.listarFechaL(FechaL);
             if(objSTACK.aux != null){
                 loadStage("/visualizer/Buscar.fxml", e);
+            }else{
+                JOptionPane.showMessageDialog(null, "Ningun producto tiene la fecha lote buscada!");
             }
         }
         if(evt.equals(btnFechaV)){
@@ -128,6 +134,8 @@ public class PaginaprincipalController implements Initializable {
             pilaP.listarFechaV(FechaV);
             if(objSTACK.aux != null){
                 loadStage("/visualizer/Buscar.fxml", e);
+            }else{
+                JOptionPane.showMessageDialog(null, "Ningun producto tiene la fecha de vencimiento buscada!");
             }
         }
         if(evt.equals(btnPrecio)){
@@ -135,9 +143,11 @@ public class PaginaprincipalController implements Initializable {
             pilaP.listarPrecio(Precio);
             if(objSTACK.aux != null){
                 loadStage("/visualizer/Buscar.fxml", e);
+            }else{
+                JOptionPane.showMessageDialog(null, "Ningun producto tiene el precio buscado!");
             }
         }
-        if(evt.equals(btnModFecha)){
+        if(evt.equals(btnFecha1)){
             registro.modFecha();
             dia = controller.registro.RegistrarprodController.dia;
             mes = controller.registro.RegistrarprodController.mes;
@@ -149,6 +159,26 @@ public class PaginaprincipalController implements Initializable {
         }
         if(evt.equals(btnFecha10)){
             registro.modFecha10();
+            dia = controller.registro.RegistrarprodController.dia;
+            mes = controller.registro.RegistrarprodController.mes;
+            año = controller.registro.RegistrarprodController.año;
+            fecha = String.valueOf(dia) + "/" + String.valueOf(mes+1) + "/" + String.valueOf(año);
+            JOptionPane.showMessageDialog(null, "Fecha actualizada:\n" +
+                                        String.valueOf(dia) + "/" +  String.valueOf(mes+1) + "/" + String.valueOf(año));
+            pilaP.setRemoveProducto();
+        }
+        if(evt.equals(btnFecham1)){
+            registro.modFecham1();
+            dia = controller.registro.RegistrarprodController.dia;
+            mes = controller.registro.RegistrarprodController.mes;
+            año = controller.registro.RegistrarprodController.año;
+            fecha = String.valueOf(dia) + "/" + String.valueOf(mes+1) + "/" + String.valueOf(año);
+            JOptionPane.showMessageDialog(null, "Fecha actualizada:\n" +
+                                        String.valueOf(dia) + "/" +  String.valueOf(mes+1) + "/" + String.valueOf(año));
+            pilaP.setRemoveProducto();
+        }
+        if(evt.equals(btnFecham10)){
+            registro.modFecham10();
             dia = controller.registro.RegistrarprodController.dia;
             mes = controller.registro.RegistrarprodController.mes;
             año = controller.registro.RegistrarprodController.año;

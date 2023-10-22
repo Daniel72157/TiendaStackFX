@@ -38,36 +38,66 @@
                         </Label>
                         <HBox prefHeight="25.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <Button fx:id="btnId" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="ID" />
-                              <Button fx:id="btnNom" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Nombre" />
-                              <Button fx:id="btnPrecio" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Precio" />
+                              <Button fx:id="btnId" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="ID">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                              <Button fx:id="btnNom" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Nombre">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                              <Button fx:id="btnPrecio" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Precio">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <Button fx:id="btnFechaL" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Fecha lote" />
-                              <Button fx:id="btnFechaV" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Fecha vence" />
+                              <Button fx:id="btnFechaL" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Fecha lote">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                              <Button fx:id="btnFechaV" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Fecha vence">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
                            </children>
                         </HBox>
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="105.0" prefWidth="127.0" spacing="5.0">
                      <children>
-                        <Button fx:id="btnMenProm" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Menor al promedio" />
-                        <Button fx:id="btnMayProm" mnemonicParsing="false" onAction="#actionEvent" style="-fx-border-radius: 90; -fx-background-radius: 90;" text="Mayor al promedio" />
+                        <Button fx:id="btnMenProm" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Menor al promedio">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Button fx:id="btnMayProm" mnemonicParsing="false" onAction="#actionEvent" style="-fx-border-radius: 90; -fx-background-radius: 90;" text="Mayor al promedio">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
                      <children>
-                        <Button fx:id="btnMayPrecio" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Mayor precio" />
-                        <Button fx:id="btnMenPrecio" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Menor precio" />
+                        <Button fx:id="btnMayPrecio" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Mayor precio">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Button fx:id="btnMenPrecio" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Menor precio">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                      </children>
                   </VBox>
                </children>
             </HBox>
          </children>
       </VBox>
-      <Button fx:id="btnClose" layoutX="674.0" layoutY="451.0" mnemonicParsing="false" onAction="#actionEvent" prefHeight="25.0" prefWidth="64.0" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Salir" />
+      <Button fx:id="btnClose" layoutX="674.0" layoutY="451.0" mnemonicParsing="false" onAction="#actionEvent" prefHeight="25.0" prefWidth="64.0" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="Salir">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <TableView fx:id="tbList" layoutX="210.0" layoutY="165.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 10;" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="9.5" AnchorPane.rightAnchor="9.5" AnchorPane.topAnchor="105.0">
         <columns>
           <TableColumn fx:id="idProducto" prefWidth="146.0" text="Id. Producto" />
@@ -77,17 +107,50 @@
             <TableColumn fx:id="precioU" prefWidth="146.0" text="Precio unitario" />
         </columns>
       </TableView>
-      <Button fx:id="btnModFecha" layoutX="14.0" layoutY="451.0" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90;" text="Modificar fecha">
+      <Button fx:id="btnRegistrar" layoutX="232.0" layoutY="451.0" mnemonicParsing="false" onAction="#actionEvent" style="-fx-border-radius: 90; -fx-background-radius: 90;" text="Registrar">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="btnFecha10" layoutX="122.0" layoutY="451.0" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90;" text="+10">
+         </cursor></Button>
+      <Button fx:id="btnProm" layoutX="307.0" layoutY="451.0" mnemonicParsing="false" onAction="#actionEvent" style="-fx-border-radius: 90; -fx-background-radius: 90;" text="Promedio">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="btnRegistrar" layoutX="166.0" layoutY="451.0" mnemonicParsing="false" onAction="#actionEvent" style="-fx-border-radius: 90; -fx-background-radius: 90;" text="Registrar" />
-      <Button fx:id="btnProm" layoutX="240.0" layoutY="451.0" mnemonicParsing="false" onAction="#actionEvent" style="-fx-border-radius: 90; -fx-background-radius: 90;" text="Promedio" />
+         </cursor></Button>
+      <VBox layoutX="116.0" layoutY="436.0" prefHeight="55.0" prefWidth="100.0" spacing="5.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="25.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Button fx:id="btnFecha1" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-background-radius: 90;" text="+1">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnFecha10" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="+10">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="25.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Button fx:id="btnFecham1" mnemonicParsing="false" onAction="#actionEvent" prefWidth="31.0" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="-1">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnFecham10" mnemonicParsing="false" onAction="#actionEvent" prefWidth="38.0" style="-fx-background-radius: 90; -fx-border-radius: 90;" text="-10">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Label layoutX="21.0" layoutY="455.0" text="Modificar Fecha:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -41,6 +41,7 @@ public class RegistrarprodController implements Initializable {
     public static int dia = calendario.get(Calendar.DATE);
     public static int mes = calendario.get(Calendar.MONTH);
     public static int año = calendario.get(Calendar.YEAR);
+    public static int diav, mesv;
     public String fecha;
     
     @FXML
@@ -94,11 +95,14 @@ public class RegistrarprodController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+        calendario.add(Calendar.DATE, 31);
+        diav = calendario.get(Calendar.DATE);
+        mesv = calendario.get(Calendar.MONTH);
+        calendario.add(Calendar.DATE, -31);
         controller.PaginaprincipalController.pilaP = pila;
         
         txtLote.setText(String.valueOf(dia)+ "/" + String.valueOf(mes+1)+ "/" + String.valueOf(año));
-        txtVence.setText(String.valueOf(dia)+ "/" + String.valueOf(mes+2)+ "/" + String.valueOf(año));
+        txtVence.setText(String.valueOf(diav)+ "/" + String.valueOf(mesv+1)+ "/" + String.valueOf(año));
     }
     public void modFecha(){
         calendario.add(Calendar.DATE, 1);
@@ -108,6 +112,18 @@ public class RegistrarprodController implements Initializable {
     }
     public void modFecha10(){
         calendario.add(Calendar.DATE, 10);
+        dia = calendario.get(Calendar.DATE);
+        mes = calendario.get(Calendar.MONTH);
+        año = calendario.get(Calendar.YEAR);
+    }
+    public void modFecham1(){
+        calendario.add(Calendar.DATE, -1);
+        dia = calendario.get(Calendar.DATE);
+        mes = calendario.get(Calendar.MONTH);
+        año = calendario.get(Calendar.YEAR);
+    }
+    public void modFecham10(){
+        calendario.add(Calendar.DATE, -10);
         dia = calendario.get(Calendar.DATE);
         mes = calendario.get(Calendar.MONTH);
         año = calendario.get(Calendar.YEAR);
