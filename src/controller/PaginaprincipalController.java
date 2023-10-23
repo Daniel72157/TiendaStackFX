@@ -23,10 +23,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -68,7 +67,10 @@ public class PaginaprincipalController implements Initializable {
     
     @FXML
     private Button btnRegistrar, btnClose, btnProm, btnMenProm, btnMayProm, btnFecha1, btnFecham1, btnFecham10
-            , btnFecha10, btnMayPrecio, btnMenPrecio, btnId, btnNom, btnPrecio, btnFechaL, btnFechaV;   
+            , btnFecha10, btnMayPrecio, btnMenPrecio, btnId, btnNom, btnPrecio, btnFechaL, btnFechaV; 
+    
+    @FXML
+    private TextField txtFecha;
     
    
     @FXML
@@ -153,6 +155,7 @@ public class PaginaprincipalController implements Initializable {
             mes = controller.registro.RegistrarprodController.mes;
             año = controller.registro.RegistrarprodController.año;
             fecha = String.valueOf(dia) + "/" + String.valueOf(mes+1) + "/" + String.valueOf(año);
+            txtFecha.setText(fecha);
             JOptionPane.showMessageDialog(null, "Fecha actualizada:\n" +
                                         String.valueOf(dia) + "/" +  String.valueOf(mes+1) + "/" + String.valueOf(año));
             pilaP.setRemoveProducto();
@@ -163,6 +166,7 @@ public class PaginaprincipalController implements Initializable {
             mes = controller.registro.RegistrarprodController.mes;
             año = controller.registro.RegistrarprodController.año;
             fecha = String.valueOf(dia) + "/" + String.valueOf(mes+1) + "/" + String.valueOf(año);
+            txtFecha.setText(fecha);
             JOptionPane.showMessageDialog(null, "Fecha actualizada:\n" +
                                         String.valueOf(dia) + "/" +  String.valueOf(mes+1) + "/" + String.valueOf(año));
             pilaP.setRemoveProducto();
@@ -197,6 +201,7 @@ public class PaginaprincipalController implements Initializable {
         mes = controller.registro.RegistrarprodController.mes;
         año = controller.registro.RegistrarprodController.año;
         fecha = String.valueOf(dia) + "/" + String.valueOf(mes+1) + "/" + String.valueOf(año);
+        txtFecha.setText(fecha);
         idProducto.setCellValueFactory(new PropertyValueFactory<producto, String>("idProducto"));
         nomProducto.setCellValueFactory(new PropertyValueFactory<producto, String>("nomProducto"));
         FechaLote.setCellValueFactory(new PropertyValueFactory<producto, String>("FechaLote"));

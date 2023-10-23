@@ -41,7 +41,7 @@ public class RegistrarprodController implements Initializable {
     public static int dia = calendario.get(Calendar.DATE);
     public static int mes = calendario.get(Calendar.MONTH);
     public static int año = calendario.get(Calendar.YEAR);
-    public static int diav, mesv;
+    public static int diav, mesv, añov;
     public String fecha;
     
     @FXML
@@ -98,11 +98,12 @@ public class RegistrarprodController implements Initializable {
         calendario.add(Calendar.DATE, 31);
         diav = calendario.get(Calendar.DATE);
         mesv = calendario.get(Calendar.MONTH);
+        añov = calendario.get(Calendar.YEAR);
         calendario.add(Calendar.DATE, -31);
         controller.PaginaprincipalController.pilaP = pila;
         
         txtLote.setText(String.valueOf(dia)+ "/" + String.valueOf(mes+1)+ "/" + String.valueOf(año));
-        txtVence.setText(String.valueOf(diav)+ "/" + String.valueOf(mesv+1)+ "/" + String.valueOf(año));
+        txtVence.setText(String.valueOf(diav)+ "/" + String.valueOf(mesv+1)+ "/" + String.valueOf(añov));
     }
     public void modFecha(){
         calendario.add(Calendar.DATE, 1);
