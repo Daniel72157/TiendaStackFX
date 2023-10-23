@@ -177,6 +177,7 @@ public class PaginaprincipalController implements Initializable {
             mes = controller.registro.RegistrarprodController.mes;
             año = controller.registro.RegistrarprodController.año;
             fecha = String.valueOf(dia) + "/" + String.valueOf(mes+1) + "/" + String.valueOf(año);
+            txtFecha.setText(fecha);
             JOptionPane.showMessageDialog(null, "Fecha actualizada:\n" +
                                         String.valueOf(dia) + "/" +  String.valueOf(mes+1) + "/" + String.valueOf(año));
             pilaP.setRemoveProducto();
@@ -187,6 +188,7 @@ public class PaginaprincipalController implements Initializable {
             mes = controller.registro.RegistrarprodController.mes;
             año = controller.registro.RegistrarprodController.año;
             fecha = String.valueOf(dia) + "/" + String.valueOf(mes+1) + "/" + String.valueOf(año);
+            txtFecha.setText(fecha);
             JOptionPane.showMessageDialog(null, "Fecha actualizada:\n" +
                                         String.valueOf(dia) + "/" +  String.valueOf(mes+1) + "/" + String.valueOf(año));
             pilaP.setRemoveProducto();
